@@ -1,0 +1,18 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeaderERM from "@/components/dashboards/erm/HeaderERM.astro";
+import TitelPagesERM from "@/components/dashboards/erm/TitelPagesERM.astro";
+import HeroSummaryERM from "@/components/dashboards/erm/HeroSummaryERM.astro";
+---
+
+<Layout>
+  <HeaderERM />
+  <main class="w-full flex flex-col p-4 gap-4">
+    <TitelPagesERM
+      title="Dashboard"
+      href="dashboards/erm/caja/comienzo"
+      button="Agregar comienzo de caja"
+    />
+    <HeroSummaryERM />
+  </main>
+</Layout>

@@ -1,0 +1,46 @@
+---
+import SummaryArticleERM from "./SummaryArticleERM.astro";
+import ReceiptIconERM from "./icons/ReceiptIconERM.astro";
+import MercadoPagoERM from "./icons/MercadoPagoERM.astro";
+import CashIconERM from "./icons/CashIconERM.astro";
+import CardIconERM from "./icons/CardIconERM.astro";
+
+const total_in = 150;
+const total_out = 50;
+const mercadopagoQuantity = 50;
+const cashQuantity = 50;
+const cardQuantity = 50;
+---
+
+<section class="flex flex-col md:flex-row w-full min-h-28 gap-4">
+  <SummaryArticleERM
+    title="Ganancias totales"
+    price={total_in}
+    info={`Después de retiros $${total_in - total_out}`}
+  >
+    <ReceiptIconERM />
+  </SummaryArticleERM>
+
+  <SummaryArticleERM
+    title="Ventas totales con Mercado Pago"
+    price={mercadopagoQuantity}
+    isNotPrice={true}
+  >
+    <MercadoPagoERM />
+  </SummaryArticleERM>
+  <SummaryArticleERM
+    title="Ventas totales en efectivo"
+    price={cashQuantity}
+    isNotPrice={true}
+  >
+    <CashIconERM />
+  </SummaryArticleERM>
+
+  <SummaryArticleERM
+    title="Ventas totales con tarjeta"
+    price={cardQuantity}
+    isNotPrice={true}
+  >
+    <CardIconERM />
+  </SummaryArticleERM>
+</section>

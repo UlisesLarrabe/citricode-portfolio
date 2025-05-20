@@ -1,0 +1,26 @@
+---
+import PlusIcon from "@components/dashboards/erm/icons/PlusIcon.astro";
+
+interface Props {
+  title: string;
+  href?: string;
+  button?: string;
+}
+
+const { title, href, button } = Astro.props;
+---
+
+<section class="flex justify-between">
+  <h1 class="text-4xl font-bold">{title}</h1>
+  {
+    href && button && (
+      <a
+        href={href}
+        class="bg-eerie-black flex justify-center items-center gap-2 h-18 md:h-full text-snow px-4 py-2 rounded-lg cursor-pointer"
+      >
+        <PlusIcon />
+        {button}
+      </a>
+    )
+  }
+</section>
