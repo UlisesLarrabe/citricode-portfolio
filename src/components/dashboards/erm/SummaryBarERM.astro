@@ -1,0 +1,19 @@
+---
+import ProgressInfoERM from "./ProgressInfoERM.astro";
+
+const cashPercentage = 28;
+const mercadoPagoPercentage = 40;
+const cardPercentage = 32;
+---
+
+<article
+  class="p-4 border border-gray-300 rounded-lg flex flex-col gap-6 md:w-1/2"
+>
+  <h3 class="text-xl font-bold">Resumen de Ventas por Método de Pago</h3>
+
+  <main class="flex flex-col gap-2">
+    <ProgressInfoERM title="Efectivo" percentage={cashPercentage} />
+    <ProgressInfoERM title="Mercado Pago" percentage={mercadoPagoPercentage} />
+    <ProgressInfoERM title="Tarjeta" percentage={cardPercentage} />
+  </main>
+</article>
