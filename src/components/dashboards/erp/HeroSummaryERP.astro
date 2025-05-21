@@ -1,9 +1,9 @@
 ---
-import SummaryArticleERM from "./SummaryArticleERM.astro";
-import ReceiptIconERM from "./icons/ReceiptIconERM.astro";
-import MercadoPagoERM from "./icons/MercadoPagoERM.astro";
-import CashIconERM from "./icons/CashIconERM.astro";
-import CardIconERM from "./icons/CardIconERM.astro";
+import SummaryArticleERP from "./SummaryArticleERP.astro";
+import ReceiptIconERP from "./icons/ReceiptIconERP.astro";
+import MercadoPagoERP from "./icons/MercadoPagoERP.astro";
+import CashIconERP from "./icons/CashIconERP.astro";
+import CardIconERP from "./icons/CardIconERP.astro";
 
 const total_in = 250000;
 const total_out = 50000;
@@ -13,34 +13,34 @@ const cardQuantity = 16;
 ---
 
 <section class="flex flex-col md:flex-row w-full min-h-28 gap-4">
-  <SummaryArticleERM
+  <SummaryArticleERP
     title="Ganancias totales"
     price={total_in}
     info={`Después de retiros $${total_in - total_out}`}
   >
-    <ReceiptIconERM />
-  </SummaryArticleERM>
+    <ReceiptIconERP />
+  </SummaryArticleERP>
 
-  <SummaryArticleERM
+  <SummaryArticleERP
     title="Ventas totales con Mercado Pago"
     price={mercadopagoQuantity}
     isNotPrice={true}
   >
-    <MercadoPagoERM />
-  </SummaryArticleERM>
-  <SummaryArticleERM
+    <MercadoPagoERP />
+  </SummaryArticleERP>
+  <SummaryArticleERP
     title="Ventas totales en efectivo"
     price={cashQuantity}
     isNotPrice={true}
   >
-    <CashIconERM />
-  </SummaryArticleERM>
+    <CashIconERP />
+  </SummaryArticleERP>
 
-  <SummaryArticleERM
+  <SummaryArticleERP
     title="Ventas totales con tarjeta"
     price={cardQuantity}
     isNotPrice={true}
   >
-    <CardIconERM />
-  </SummaryArticleERM>
+    <CardIconERP />
+  </SummaryArticleERP>
 </section>

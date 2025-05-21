@@ -1,5 +1,5 @@
 ---
-import ProgressInfoERM from "./ProgressInfoERM.astro";
+import ProgressInfoERP from "./ProgressInfoERP.astro";
 
 const cashPercentage = 28;
 const mercadoPagoPercentage = 40;
@@ -12,8 +12,8 @@ const cardPercentage = 32;
   <h3 class="text-xl font-bold">Resumen de Ventas por Método de Pago</h3>
 
   <main class="flex flex-col gap-2">
-    <ProgressInfoERM title="Efectivo" percentage={cashPercentage} />
-    <ProgressInfoERM title="Mercado Pago" percentage={mercadoPagoPercentage} />
-    <ProgressInfoERM title="Tarjeta" percentage={cardPercentage} />
+    <ProgressInfoERP title="Efectivo" percentage={cashPercentage} />
+    <ProgressInfoERP title="Mercado Pago" percentage={mercadoPagoPercentage} />
+    <ProgressInfoERP title="Tarjeta" percentage={cardPercentage} />
   </main>
 </article>

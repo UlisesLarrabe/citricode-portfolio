@@ -1,0 +1,39 @@
+---
+import TheadBoxERP from "./TheadBoxERP.astro";
+import TdescriptionERP from "./TdescriptionERP.astro";
+---
+
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <TheadBoxERP title="Nombre" />
+        <TheadBoxERP title="Stock" />
+        <TheadBoxERP title="Local" />
+        <TheadBoxERP title="Acciones" />
+      </tr>
+    </thead>
+    <tbody
+      class="bg-white divide-y divide-gray-200 border-t-2 border-b-2 border-gray-200"
+    >
+      <tr>
+        <td colspan={4} class="bg-gray-100 font-bold text-lg px-6 py-2">
+          Sin categoría (?)
+        </td>
+      </tr>
+      <tr>
+        <TdescriptionERP>Producto 1</TdescriptionERP>
+        <TdescriptionERP> 10 </TdescriptionERP>
+        <TdescriptionERP>Local 1</TdescriptionERP>
+        <TdescriptionERP>
+          <a
+            href={`dashboards/erp/inventario/1`}
+            class="border-b-2 cursor-pointer"
+          >
+            Editar
+          </a>
+        </TdescriptionERP>
+      </tr>
+    </tbody>
+  </table>
+</div>

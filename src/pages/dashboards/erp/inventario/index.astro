@@ -1,0 +1,21 @@
+---
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import TitlePagesERP from "@/components/dashboards/erp/TitlePagesERP.astro";
+import InventoryFiltersERP from "@/components/dashboards/erp/InventoryFiltersERP.astro";
+import InventoryTableERP from "@/components/dashboards/erp/InventoryTableERP.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <HeaderERP />
+  <main class="w-full flex flex-col p-4 gap-4">
+    <TitlePagesERP
+      title="Inventario de productos"
+      href="/dashboards/erp/inventario/agregar"
+      button="Agregar producto"
+    />
+
+    <InventoryFiltersERP />
+    <InventoryTableERP />
+  </main></Layout
+>

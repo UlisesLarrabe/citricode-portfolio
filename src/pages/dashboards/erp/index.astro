@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import TitlePagesERP from "@/components/dashboards/erp/TitlePagesERP.astro";
+import HeroSummaryERP from "@/components/dashboards/erp/HeroSummaryERP.astro";
+import AdditionalInfoERP from "@/components/dashboards/erp/AdditionalInfoERP.astro";
+---
+
+<Layout>
+  <HeaderERP />
+  <main class="w-full flex flex-col p-4 gap-4">
+    <TitlePagesERP
+      title="Dashboard"
+      href="dashboards/erp/caja/comienzo"
+      button="Agregar comienzo de caja"
+    />
+    <HeroSummaryERP />
+    <AdditionalInfoERP />
+  </main>
+</Layout>
