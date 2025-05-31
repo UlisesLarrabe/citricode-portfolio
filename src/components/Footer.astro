@@ -1,0 +1,41 @@
+---
+import Instagram from "@/icons/Instagram.astro";
+import Tiktok from "@/icons/Tiktok.astro";
+---
+
+<footer class="bg-[#FEF8E8] border-t border-[#ff8a3d]/20 mt-10">
+  <div
+    class="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4 py-6"
+  >
+    <div class="flex items-center gap-2">
+      <img
+        src="/citricode-logo-v2.webp"
+        alt="Logo Citricode"
+        width="40"
+        height="40"
+        class="rounded"
+      />
+      <span class="text-[#ff8a3d] font-bold text-xl">Citricode</span>
+    </div>
+    <div class="flex gap-6 items-center">
+      <a
+        href="https://instagram.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        class="text-[#ff8a3d] hover:text-[#101927] transition-colors"
+      >
+        <Instagram class="w-6 h-6" />
+      </a>
+      <a
+        href="https://tiktok.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="TikTok"
+        class="text-[#ff8a3d] hover:text-[#101927] transition-colors"
+      >
+        <Tiktok class="w-6 h-6" />
+      </a>
+    </div>
+  </div>
+</footer>
