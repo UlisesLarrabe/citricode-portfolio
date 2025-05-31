@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-header {
+.header-main {
   backdrop-filter: blur(5px);
   position: sticky;
   top: 0px;
