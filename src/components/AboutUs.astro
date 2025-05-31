@@ -1,0 +1,35 @@
+---
+import CardInfo from "./CardInfo.astro";
+---
+
+<section class="p-2 pt-[200px] w-full mx-auto bg-citricode-white">
+  <div class="flex flex-col gap-4 justify-center items-center">
+    <h2
+      class="text-[#101927] text-4xl font-bold md:text-balance text-center pb-4 md:pb-0"
+    >
+      Sobre <span class="text-citricode-orange">Citricode</span>
+    </h2>
+    <p class="text-[#4a5463] text-wrap max-w-[700px]">
+      Somos una empresa de tecnología especializada en el desarrollo de
+      soluciones digitales innovadoras. Nuestro enfoque fresco y creativo,
+      simbolizado por nuestra mandarina, refleja nuestra filosofía: ofrecer
+      soluciones jugosas, refrescantes y llenas de vitalidad.
+    </p>
+  </div>
+  <div
+    class="flex flex-col md:flex-row flex-wrap gap-6 justify-center items-center max-w-[1440px] mx-auto pt-10"
+  >
+    <CardInfo
+      title="Misión"
+      description="Transformar ideas en soluciones digitales efectivas que impulsen el crecimiento de nuestros clientes."
+    />
+    <CardInfo
+      title="Visión"
+      description="Ser referentes en innovación digital, creando experiencias que marquen la diferencia en el mercado."
+    />
+    <CardInfo
+      title="Valores"
+      description="Innovación, creatividad, compromiso, transparencia y excelencia en cada proyecto que desarrollamos."
+    />
+  </div>
+</section>
