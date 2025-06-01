@@ -1,18 +1,109 @@
-<header class="bg-[#FEF8E8] header-main p-2">
-  <div class="flex justify-between max-w-[1440px] mx-auto">
+<header class="bg-[#FEF8E8] p-2 header-main sticky top-0">
+  <div class="flex justify-between max-w-[1440px] mx-auto items-center">
     <div class="flex gap-2 items-center">
-      <a href="/#hero" class="flex gap-2 items-center"
-        ><img src="/citricode-logo-v2.webp" alt="Logo" width="50" height="50" />
+      <a href="/#hero" class="flex gap-2 items-center">
+        <img src="/citricode-logo-v2.webp" alt="Logo" width="50" height="50" />
         <p class="text-[#ff8a3d] font-bold text-2xl">Citricode</p>
       </a>
     </div>
-    <div class="flex gap-4 items-center">
-      <a href="/#hero" class="text-eerie-black/80 font-bold">Inicio</a>
-      <a href="/#about-us" class="text-eerie-black/80 font-bold"
-        >Sobre Citricode</a
+    <!-- Botón hamburguesa, alineado a la derecha en móviles -->
+    <button
+      id="menu-btn"
+      class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-[#ff8a3d] ml-auto mr-2"
+      aria-label="Abrir menú"
+      type="button"
+      style="z-index:51;"
+    >
+      <span
+        class="block h-1 w-7 my-1 rounded-full bg-[#ff8a3d] transition-all duration-300"
+        id="bar1"></span>
+      <span
+        class="block h-1 w-7 my-1 rounded-full bg-[#ff8a3d] transition-all duration-300"
+        id="bar2"></span>
+      <span
+        class="block h-1 w-7 my-1 rounded-full bg-[#ff8a3d] transition-all duration-300"
+        id="bar3"></span>
+    </button>
+    <!-- Menú de navegación -->
+    <nav>
+      <div class="hidden md:flex gap-4 items-center">
+        <a href="/#hero" class="text-eerie-black/80 font-bold">Inicio</a>
+        <a href="/#about-us" class="text-eerie-black/80 font-bold"
+          >Sobre Citricode</a
+        >
+        <a href="/#dashboards" class="text-eerie-black/80 font-bold"
+          >Dashboards</a
+        >
+      </div>
+      <div
+        id="mobile-menu"
+        class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-[#FEF8E8] shadow-lg z-50 flex flex-col gap-8 pt-24 px-6 transition-transform duration-300 md:hidden translate-x-full"
       >
-      <a href="/#dashboards" class="text-eerie-black/80 font-bold">Dashboards</a
+        <a
+          href="/#hero"
+          class="text-eerie-black/80 font-bold text-lg close-mobile">Inicio</a
+        >
+        <a
+          href="/#about-us"
+          class="text-eerie-black/80 font-bold text-lg close-mobile"
+          >Sobre Citricode</a
+        >
+        <a
+          href="/#dashboards"
+          class="text-eerie-black/80 font-bold text-lg close-mobile"
+          >Dashboards</a
+        >
+      </div>
+      <div
+        id="menu-overlay"
+        class="fixed inset-0 bg-black/30 z-40 md:hidden hidden"
       >
-    </div>
+      </div>
+    </nav>
   </div>
+  <script>
+    // Typescript-safe: comprobaciones de null y tipado correcto
+    const btn = document.getElementById("menu-btn") as HTMLButtonElement | null;
+    const menu = document.getElementById(
+      "mobile-menu"
+    ) as HTMLDivElement | null;
+    const overlay = document.getElementById(
+      "menu-overlay"
+    ) as HTMLDivElement | null;
+    const bar1 = document.getElementById("bar1") as HTMLSpanElement | null;
+    const bar2 = document.getElementById("bar2") as HTMLSpanElement | null;
+    const bar3 = document.getElementById("bar3") as HTMLSpanElement | null;
+    const closeLinks = document.querySelectorAll(".close-mobile");
+    let open = false;
+    function openMenu() {
+      if (!menu || !overlay || !bar1 || !bar2 || !bar3) return;
+      menu.classList.remove("translate-x-full");
+      menu.classList.add("translate-x-0");
+      overlay.classList.remove("hidden");
+      // animar hamburguesa
+      bar1.classList.add("rotate-45", "translate-y-2");
+      bar2.classList.add("opacity-0");
+      bar3.classList.add("-rotate-45", "-translate-y-2");
+      open = true;
+    }
+    function closeMenu() {
+      if (!menu || !overlay || !bar1 || !bar2 || !bar3) return;
+      menu.classList.remove("translate-x-0");
+      menu.classList.add("translate-x-full");
+      overlay.classList.add("hidden");
+      // restaurar hamburguesa
+      bar1.classList.remove("rotate-45", "translate-y-2");
+      bar2.classList.remove("opacity-0");
+      bar3.classList.remove("-rotate-45", "-translate-y-2");
+      open = false;
+    }
+    if (btn) {
+      btn.addEventListener("click", () => {
+        if (open) closeMenu();
+        else openMenu();
+      });
+    }
+    if (overlay) overlay.addEventListener("click", closeMenu);
+    closeLinks.forEach((link) => link.addEventListener("click", closeMenu));
+  </script>
 </header>
