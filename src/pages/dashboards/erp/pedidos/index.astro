@@ -1,0 +1,24 @@
+---
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import Layout from "@/layouts/Layout.astro";
+import TitlePagesERP from "@/components/dashboards/erp/TitlePagesERP.astro";
+import OrdersFilters from "@/components/dashboards/erp/orders/OrdersFilters.astro";
+import TableOrders from "@/components/dashboards/erp/orders/TableOrders.astro";
+---
+
+<Layout>
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <TitlePagesERP
+        title="Gestión de pedidos"
+        href="/pedidos/crear"
+        button="Nuevo pedido"
+      />
+      <OrdersFilters />
+      <section>
+        <TableOrders />
+      </section>
+    </main>
+  </div>
+</Layout>

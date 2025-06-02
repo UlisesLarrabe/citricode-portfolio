@@ -1,0 +1,125 @@
+---
+import TheadBoxERP from "../TheadBoxERP.astro";
+import TdescriptionERP from "../TdescriptionERP.astro";
+
+interface Client {
+  name: string;
+  value: string;
+}
+
+export const CLIENTS: Client[] = [
+  {
+    name: "Local",
+    value: "local",
+  },
+  {
+    name: "Delivery",
+    value: "delivery",
+  },
+  {
+    name: "Pedidos Ya",
+    value: "pedidos_ya",
+  },
+  {
+    name: "Rappi",
+    value: "rappi",
+  },
+];
+
+interface Order {
+  id: string;
+  local: string;
+  total_price: number;
+  payment_method: "cash" | "mercado_pago" | "card";
+  description: {
+    item: string;
+    quantity: number;
+    type: string;
+  }[];
+  created_at: Date;
+  client: Client;
+}
+
+const orders: Order[] = [
+  {
+    id: "1",
+    local: "Local 1",
+    total_price: 100,
+    payment_method: "cash",
+    description: [
+      {
+        item: "Producto 1",
+        quantity: 1,
+        type: "Ropa",
+      },
+    ],
+    created_at: new Date(),
+    client: CLIENTS[0],
+  },
+];
+---
+
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <TheadBoxERP title="Hora" />
+        <TheadBoxERP title="Método" />
+        <TheadBoxERP title="Monto" />
+        <TheadBoxERP title="Descripción" />
+        <TheadBoxERP title="Local" />
+        <TheadBoxERP title="Cliente" />
+        <TheadBoxERP title="Acciones" />
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      {
+        orders.toReversed().map((orders) => {
+          const paymentString =
+            orders.payment_method === "cash"
+              ? "Efectivo"
+              : orders.payment_method === "mercado_pago"
+                ? "Mercado Pago"
+                : "Tarjeta";
+
+          return (
+            <tr>
+              <TdescriptionERP>
+                {orders.created_at.toLocaleTimeString()}
+              </TdescriptionERP>
+
+              <TdescriptionERP>{paymentString}</TdescriptionERP>
+              <TdescriptionERP>${orders.total_price}</TdescriptionERP>
+              <TdescriptionERP>
+                {orders.description.map((description) => (
+                  <p>
+                    {description.item} - Cantidad: {description.quantity} -
+                    Tipo: {description.type}
+                  </p>
+                ))}
+              </TdescriptionERP>
+              <TdescriptionERP>{orders.local}</TdescriptionERP>
+              <TdescriptionERP>{orders.client?.name}</TdescriptionERP>
+              <TdescriptionERP>
+                <button class="bg-[#ff5252] text-white p-2 rounded-lg cursor-pointer hover:bg-[#ff5252]/80">
+                  Eliminar
+                </button>
+              </TdescriptionERP>
+            </tr>
+          );
+        })
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  button {
+    transition: all 0.3s ease;
+    background-color: #ff5252;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+</style>

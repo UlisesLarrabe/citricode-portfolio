@@ -1,0 +1,23 @@
+<section class="flex flex-col w-full gap-4">
+  <h2 class="text-2xl font-semibold">Filtros</h2>
+  <div class="flex gap-4">
+    <div class="flex flex-col gap-2 w-full">
+      <label class="text-lg font-medium text-gray-700">Fecha</label>
+      <input
+        type="date"
+        value={new Date().toISOString().split("T")[0]}
+        class="p-2 border border-gray-300 rounded-lg bg-white text-gray-700"
+      />
+    </div>
+    <div class="flex flex-col gap-2 w-full">
+      <label class="text-lg font-medium text-gray-700">Local</label>
+      <select
+        class="p-2 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="allLocals">Todos los locales</option>
+        <option value="Local 1">Local 1</option>
+        <option value="Local 2">Local 2</option>
+      </select>
+    </div>
+  </div>
+</section>
