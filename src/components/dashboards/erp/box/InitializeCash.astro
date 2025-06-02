@@ -1,0 +1,29 @@
+<main class="flex flex-col gap-4 p-4 w-full justify-center items-center">
+  <h2 class="text-3xl font-bold">Comienzo de caja</h2>
+  <form class="flex flex-col gap-4 md:w-1/2">
+    <label class="flex flex-col gap-2">
+      <span class="font-bold">Ingrese el monto inicial de caja</span>
+      <input
+        type="number"
+        class="border border-gray-300 rounded-md p-2"
+        value={0}
+        min={0}
+        placeholder="Monto inicial de caja"
+      />
+    </label>
+    <label class="flex flex-col gap-2">
+      <span class="font-bold">Local</span>
+      <select class="border border-gray-300 rounded-md p-2" value={"Local 1"}>
+        <option value="Local 1">Local 1</option>
+        <option value="Local 2">Local 2</option>
+      </select>
+    </label>
+    <button
+      type="submit"
+      disabled={false}
+      class="bg-eerie-black text-white px-4 py-2 rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Agregar dinero
+    </button>
+  </form>
+</main>

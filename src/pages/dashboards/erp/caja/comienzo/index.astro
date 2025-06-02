@@ -1,0 +1,17 @@
+---
+import InitializeCash from "@/components/dashboards/erp/box/InitializeCash.astro";
+import GoBackSection from "@/components/dashboards/erp/GoBackSection.astro";
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <GoBackSection href="/" title="Comienzo de caja" />
+
+      <InitializeCash />
+    </main>
+  </div>
+</Layout>
