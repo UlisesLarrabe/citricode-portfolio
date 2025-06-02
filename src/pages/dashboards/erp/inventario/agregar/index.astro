@@ -6,13 +6,15 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <HeaderERP />
-  <main class="w-full flex flex-col p-4 gap-4">
-    <GoBackSection
-      href="/dashboards/erp/inventario"
-      title="Agregar nuevo producto"
-    />
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <GoBackSection
+        href="/dashboards/erp/inventario"
+        title="Agregar nuevo producto"
+      />
 
-    <FlavourForm />
-  </main>
+      <FlavourForm />
+    </main>
+  </div>
 </Layout>

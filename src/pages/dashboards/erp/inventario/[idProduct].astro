@@ -24,13 +24,15 @@ const flavour = {
 ---
 
 <Layout>
-  <HeaderERP />
-  <main class="w-full flex flex-col p-4 gap-4">
-    <GoBackSection
-      href="/dashboards/erp/inventario"
-      title="Agregar nuevo producto"
-    />
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <GoBackSection
+        href="/dashboards/erp/inventario"
+        title="Agregar nuevo producto"
+      />
 
-    <EditFlavourForm flavour={flavour} />
-  </main>
+      <EditFlavourForm flavour={flavour} />
+    </main>
+  </div>
 </Layout>

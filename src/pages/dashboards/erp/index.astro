@@ -7,14 +7,16 @@ import AdditionalInfoERP from "@/components/dashboards/erp/AdditionalInfoERP.ast
 ---
 
 <Layout>
-  <HeaderERP />
-  <main class="w-full flex flex-col p-4 gap-4">
-    <TitlePagesERP
-      title="Dashboard"
-      href="dashboards/erp/caja/comienzo"
-      button="Agregar comienzo de caja"
-    />
-    <HeroSummaryERP />
-    <AdditionalInfoERP />
-  </main>
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <TitlePagesERP
+        title="Dashboard"
+        href="dashboards/erp/caja/comienzo"
+        button="Agregar comienzo de caja"
+      />
+      <HeroSummaryERP />
+      <AdditionalInfoERP />
+    </main>
+  </div>
 </Layout>

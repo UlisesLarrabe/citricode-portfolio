@@ -7,15 +7,17 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <HeaderERP />
-  <main class="w-full flex flex-col p-4 gap-4">
-    <TitlePagesERP
-      title="Inventario de productos"
-      href="/dashboards/erp/inventario/agregar"
-      button="Agregar producto"
-    />
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <TitlePagesERP
+        title="Inventario de productos"
+        href="/dashboards/erp/inventario/agregar"
+        button="Agregar producto"
+      />
 
-    <InventoryFiltersERP />
-    <InventoryTableERP />
-  </main></Layout
->
+      <InventoryFiltersERP />
+      <InventoryTableERP />
+    </main>
+  </div>
+</Layout>
