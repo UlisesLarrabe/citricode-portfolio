@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import GoBackSection from "@/components/dashboards/erp/GoBackSection.astro";
+import EditFlavourForm from "@/components/dashboards/erp/inventory/EditFlavourForm.astro";
+
+export async function getStaticPaths() {
+  return [
+    { params: { idProduct: "1" } },
+    { params: { idProduct: "2" } },
+    { params: { idProduct: "3" } },
+  ];
+}
+
+const { idProduct } = Astro.params;
+
+const flavour = {
+  name: "Producto 1",
+  stock: 10,
+  local: "Local 1",
+  category: "Ropa",
+  id: idProduct,
+};
+---
+
+<Layout>
+  <HeaderERP />
+  <main class="w-full flex flex-col p-4 gap-4">
+    <GoBackSection
+      href="/dashboards/erp/inventario"
+      title="Agregar nuevo producto"
+    />
+
+    <EditFlavourForm flavour={flavour} />
+  </main>
+</Layout>

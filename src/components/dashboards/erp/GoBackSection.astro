@@ -1,0 +1,15 @@
+---
+import ArrowLeftIcon from "./icons/ArrowLeftIcon.astro";
+
+const { href, title } = Astro.props;
+---
+
+<section class="flex gap-4">
+  <a
+    href={href}
+    class="text-eerie-black px-4 py-2 rounded-lg border border-eerie-black cursor-pointer font-bold"
+  >
+    <ArrowLeftIcon />
+  </a>
+  <h1 class="text-4xl font-bold">{title}</h1>
+</section>

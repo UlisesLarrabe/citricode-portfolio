@@ -1,0 +1,18 @@
+---
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import GoBackSection from "@/components/dashboards/erp/GoBackSection.astro";
+import FlavourForm from "@/components/dashboards/erp/inventory/FlavourForm.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <HeaderERP />
+  <main class="w-full flex flex-col p-4 gap-4">
+    <GoBackSection
+      href="/dashboards/erp/inventario"
+      title="Agregar nuevo producto"
+    />
+
+    <FlavourForm />
+  </main>
+</Layout>

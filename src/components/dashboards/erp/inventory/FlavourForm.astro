@@ -1,0 +1,52 @@
+<section class="flex flex-col gap-4 justify-center items-center">
+  <form
+    class="flex flex-col gap-4 w-1/2 p-2 border border-eerie-black rounded-lg"
+  >
+    <label class="flex flex-col gap-1">
+      <span>Nombre</span>
+      <input
+        type="text"
+        placeholder="Nombre del sabor"
+        class="border border-eerie-black rounded-lg px-4 py-2"
+      />
+    </label>
+
+    <label class="flex flex-col gap-1">
+      <span>Stock</span>
+      <input
+        type="number"
+        placeholder="Stock del sabor"
+        class="border border-eerie-black rounded-lg px-4 py-2"
+        value="0"
+      />
+    </label>
+    <label class="flex flex-col gap-1">
+      <span>Local</span>
+      <select
+        name="local"
+        id="local"
+        class="border border-eerie-black rounded-lg px-4 py-2"
+        value={"Local 1"}
+      >
+        <option value="Local 1">Local 1</option>
+        <option value="Local 2">Local 2</option>
+      </select>
+    </label>
+    <label class="flex flex-col gap-1">
+      <span>Categoría</span>
+      <select
+        class="border border-eerie-black rounded-lg px-4 py-2"
+        value={"Ropa"}
+      >
+        <option value="Ropa">Ropa</option>
+        <option value="Calzado">Calzado</option>
+      </select>
+    </label>
+    <button
+      type="submit"
+      class="bg-eerie-black text-snow px-4 py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+    >
+      Agregar sabor
+    </button>
+  </form>
+</section>
