@@ -1,0 +1,100 @@
+---
+import TheadBoxERP from "../TheadBoxERP.astro";
+import TdescriptionERP from "../TdescriptionERP.astro";
+
+const movements = [
+  {
+    id: 1,
+    created_at: "2025-06-01T12:00:00Z",
+    type: "income",
+    client: {
+      name: "Cliente 1",
+    },
+    payment_method: "cash",
+    amount: 10000,
+    reason: "Descripción 1",
+    local: "Local 1",
+  },
+  {
+    id: 2,
+    created_at: "2025-06-01T12:00:00Z",
+    type: "outcome",
+    client: {
+      name: "Cliente 2",
+    },
+    payment_method: "card",
+    amount: 20000,
+    reason: "Descripción 2",
+    local: "Local 2",
+  },
+  {
+    id: 3,
+    created_at: "2025-06-01T12:00:00Z",
+    type: "income",
+    client: {
+      name: "Cliente 3",
+    },
+    payment_method: "mercado_pago",
+    amount: 30000,
+    reason: "Descripción 3",
+    local: "Local 3",
+  },
+];
+---
+
+<div
+  class="p-2 border flex justify-center flex-col border-gray-300 rounded-lg min-w-3xs min-h-32 gap-2 w-full md:w-2/3 max-h-[500px] overflow-y-auto"
+>
+  <h2 class="font-semibold text-2xl">Movimientos del día</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <TheadBoxERP title="Hora" />
+          <TheadBoxERP title="Tipo" />
+          <TheadBoxERP title="Cliente" />
+          <TheadBoxERP title="Método" />
+          <TheadBoxERP title="Monto" />
+          <TheadBoxERP title="Descripción" />
+          <TheadBoxERP title="Local" />
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        {
+          movements.toReversed().map((movement) => {
+            const paymentString =
+              movement.payment_method === "cash"
+                ? "Efectivo"
+                : movement.payment_method === "mercado_pago"
+                  ? "Mercado Pago"
+                  : "Tarjeta";
+
+            const isIncome = movement.type === "income";
+            const incomeColor = isIncome
+              ? "text-green-800 bg-green-100"
+              : "text-red-800 bg-red-100";
+            return (
+              <tr>
+                <TdescriptionERP>
+                  {new Date(movement.created_at).toLocaleTimeString()}
+                </TdescriptionERP>
+                <TdescriptionERP>
+                  <span
+                    class={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${incomeColor}`}
+                  >
+                    {movement.type === "income" ? "Ingreso" : "Egreso"}
+                  </span>
+                </TdescriptionERP>
+                <TdescriptionERP>{movement.client?.name}</TdescriptionERP>
+                <TdescriptionERP>{paymentString}</TdescriptionERP>
+                <TdescriptionERP>${movement.amount}</TdescriptionERP>
+                <TdescriptionERP>{movement.reason}</TdescriptionERP>
+                <TdescriptionERP>{movement.local}</TdescriptionERP>
+              </tr>
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+---
+import SummaryArticleERP from "./SummaryArticleERP.astro";
+import CashIconERP from "./icons/CashIconERP.astro";
+import ReceiptIconERP from "./icons/ReceiptIconERP.astro";
+import MercadoPagoERP from "./icons/MercadoPagoERP.astro";
+import CardIconERP from "./icons/CardIconERP.astro";
+
+const cash = 10000;
+const mercado_pago = 20000;
+const card = 30000;
+const total_in = 60000;
+const total_out = 10000;
+---
+
+<section class="flex flex-col md:flex-row w-full gap-4">
+  <SummaryArticleERP
+    title="Efectivo"
+    price={cash}
+    info={`Después de retiros: $${cash - total_out}`}
+  >
+    <CashIconERP />
+  </SummaryArticleERP>
+  <SummaryArticleERP title="Mercado Pago" price={mercado_pago}>
+    <MercadoPagoERP />
+  </SummaryArticleERP>
+  <SummaryArticleERP title="Tarjeta" price={card}>
+    <CardIconERP />
+  </SummaryArticleERP>
+  <SummaryArticleERP
+    title="Total Ingresos"
+    price={total_in}
+    info={`Total después de retiros: $${total_in - total_out}`}
+  >
+    <ReceiptIconERP />
+  </SummaryArticleERP>
+</section>
