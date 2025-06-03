@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import ResumeIntro from "@/components/dashboards/erp/summary/ResumeIntro.astro";
+---
+
+<Layout>
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <ResumeIntro />
+    </main>
+  </div>
+</Layout>

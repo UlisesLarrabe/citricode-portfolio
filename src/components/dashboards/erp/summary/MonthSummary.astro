@@ -1,0 +1,46 @@
+---
+import SummaryArticleERP from "../SummaryArticleERP.astro";
+import CashIconERP from "../icons/CashIconERP.astro";
+import CardIconERP from "../icons/CardIconERP.astro";
+import MercadoPagoERP from "../icons/MercadoPagoERP.astro";
+import ReceiptIconERP from "../icons/ReceiptIconERP.astro";
+
+const monthSummary = [
+  {
+    title: "Efectivo",
+    total: 10000,
+  },
+  {
+    title: "Tarjeta",
+    total: 20000,
+  },
+  {
+    title: "Mercado Pago",
+    total: 30000,
+  },
+];
+
+const monthSummaryTotal = [
+  {
+    title: "Total",
+    total: 60000,
+  },
+];
+---
+
+<section
+  class="flex flex-col md:flex-row w-full gap-6 justify-center items-center"
+>
+  <SummaryArticleERP title="Efectivo" price={monthSummary[0].total}>
+    <CashIconERP />
+  </SummaryArticleERP>
+  <SummaryArticleERP title="Tarjeta" price={monthSummary[1].total}>
+    <CardIconERP />
+  </SummaryArticleERP>
+  <SummaryArticleERP title="Mercado Pago" price={monthSummary[2].total}>
+    <MercadoPagoERP />
+  </SummaryArticleERP>
+  <SummaryArticleERP title="Total" price={monthSummaryTotal[0].total}>
+    <ReceiptIconERP />
+  </SummaryArticleERP>
+</section>
