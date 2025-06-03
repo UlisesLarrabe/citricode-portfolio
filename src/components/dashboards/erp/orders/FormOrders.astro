@@ -1,0 +1,183 @@
+---
+import PlusIcon from "../icons/PlusIcon.astro";
+
+interface Client {
+  name: string;
+  value: string;
+}
+
+const CLIENTS: Client[] = [
+  {
+    name: "Local",
+    value: "local",
+  },
+  {
+    name: "Delivery",
+    value: "delivery",
+  },
+  {
+    name: "Pedidos Ya",
+    value: "pedidos_ya",
+  },
+  {
+    name: "Rappi",
+    value: "rappi",
+  },
+];
+
+const productOptions = [
+  { value: "Camisa", unit: "unidades" },
+  { value: "Pantalon", unit: "unidades" },
+  { value: "Saco", unit: "unidades" },
+  { value: "Zapatos", unit: "par" },
+  { value: "Gorra", unit: "unidades" },
+  { value: "Corbata", unit: "unidades" },
+  { value: "Medias", unit: "par" },
+  { value: "Calcetines", unit: "par" },
+  { value: "Traje", unit: "unidades" },
+  { value: "Vestido", unit: "unidades" },
+];
+
+const description = [
+  {
+    item: "Ropa",
+    quantity: 1,
+    type: "unidades",
+  },
+  {
+    item: "Zapatos",
+    quantity: 1,
+    type: "par",
+  },
+];
+---
+
+<form
+  class="flex flex-col gap-4 w-3/4 max-w-[1200px] border p-4 rounded-lg border-eerie-black"
+>
+  <div class="flex flex-col gap-1">
+    <h2 class="text-3xl font-bold">Información del Pedido</h2>
+    <p>Complete el formulario para registrar un nuevo pedido</p>
+  </div>
+
+  <div class="flex gap-4 w-full">
+    <div class="flex flex-col gap-4 w-1/2">
+      <label class="font-semibold text-xl">Local</label>
+      <select
+        id="local"
+        name="local"
+        class="p-2 border border-gray-300 rounded-lg"
+      >
+        <option value="Local 1">Local 1</option>
+        <option value="Local 2">Local 2</option>
+      </select>
+      <label for="client" class="font-semibold text-xl"> Cliente </label>
+      <select
+        id="client"
+        name="client"
+        class="p-2 border border-gray-300 rounded-lg"
+        value={"Local"}
+      >
+        {
+          CLIENTS.map((client) => (
+            <option value={client.value}>{client.name}</option>
+          ))
+        }
+      </select>
+      <label for="createdAt" class="font-semibold text-xl mt-2">
+        Fecha y hora del pedido (opcional)
+      </label>
+      <input
+        type="datetime-local"
+        id="createdAt"
+        name="createdAt"
+        class="p-2 border border-gray-300 rounded-lg"
+        value={""}
+        max={new Date().toISOString().split("T")[0]}
+      />
+    </div>
+    <div class="flex flex-col gap-2 w-1/2">
+      <span class="font-semibold text-xl">Método de pago</span>
+      <select
+        id="paymentMethod"
+        name="paymentMethod"
+        class="p-2 border border-gray-300 rounded-lg"
+        value={"cash"}
+      >
+        <option value="cash">Efectivo</option>
+        <option value="card">Tarjeta</option>
+        <option value="mercado_pago">Mercado Pago</option>
+      </select>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4">
+    <div class="flex justify-between">
+      <h2 class="font-semibold text-xl">Productos</h2>
+      <button
+        class="text-eerie-black px-4 py-2 rounded-lg border border-eerie-black cursor-pointer hover:bg-eerie-black hover:text-snow flex gap-2"
+      >
+        <PlusIcon />
+        Agregar producto
+      </button>
+    </div>
+    <div class="flex gap-2 w-full">
+      <div class="w-1/3 flex flex-col gap-2">
+        <label>Producto</label>
+        <select class="p-2 border border-gray-300 rounded-lg" value={""}>
+          {
+            productOptions.map((option) => (
+              <option value={option.value}>{option.value}</option>
+            ))
+          }
+        </select>
+      </div>
+      <div class="w-1/3 flex flex-col gap-2">
+        <label>Cantidad</label>
+        <input
+          type="number"
+          placeholder="1"
+          class="p-2 border border-gray-300 rounded-lg"
+          min={1}
+          value={1}
+          step={1}
+        />
+      </div>
+      <div class="w-1/3 flex flex-col gap-2">
+        <label>Tipo de unidad</label>
+        <select
+          class="p-2 border border-gray-300 rounded-lg"
+          value={"unidades"}
+        >
+          <option value="unidades">Unidades</option>
+          <option value="par">Par</option>
+        </select>
+      </div>
+    </div>
+    {
+      description.length > 0 &&
+        description.map((product) => (
+          <div class="flex gap-2 ">
+            <span class="p-2  rounded-lg w-1/3">{product.item}</span>
+            <span class="p-2 rounded-lg w-1/3">{product.quantity}</span>
+            <span class="p-2 rounded-lg w-1/3">{product.type}</span>
+          </div>
+        ))
+    }
+  </div>
+  <label>Total</label>
+  <input
+    type="number"
+    class="p-2 border border-gray-300 rounded-lg"
+    min={0}
+    step={0.1}
+    value={1000}
+  />
+
+  <button
+    type="submit"
+    class="bg-eerie-black text-snow px-4 py-2 rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+    disabled={false}
+  >
+    Guardar
+  </button>
+</form>

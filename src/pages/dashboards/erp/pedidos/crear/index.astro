@@ -1,0 +1,21 @@
+---
+import GoBackSection from "@/components/dashboards/erp/GoBackSection.astro";
+import HeaderERP from "@/components/dashboards/erp/HeaderERP.astro";
+import FormOrders from "@/components/dashboards/erp/orders/FormOrders.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="bg-[#fefffe] h-[calc(100vh-56px)]">
+    <HeaderERP />
+    <main class="w-full flex flex-col p-4 gap-4">
+      <GoBackSection
+        href="/dashboards/erp/pedidos"
+        title="Gestión de pedidos"
+      />
+      <section class="flex justify-center items-center gap-4">
+        <FormOrders />
+      </section>
+    </main>
+  </div>
+</Layout>
